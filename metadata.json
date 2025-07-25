@@ -1,0 +1,5 @@
+{
+  "name": "Team Pushpak Drone Project",
+  "description": "The official website for Team Pushpak, showcasing our advanced hexacopter and quadcopter projects integrating AI with Pixhawk and Raspberry Pi.",
+  "requestFramePermissions": []
+}
