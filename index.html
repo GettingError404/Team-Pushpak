@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Pushpak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1a3685', // Dark Blue
+              'primary-dark': '#132a6a', // Darker blue for hover
+              accent: '#f5c000', // Vibrant Yellow
+              'accent-dark': '#d4a800', // Darker yellow for hover
+              neutral: '#FFFFFF', // White
+              support: '#36454F', // Charcoal Grey
+              'support-light': '#D5DBDB', // Light Grey
+              electric: '#00FFFF', // Electric Blue/Cyan
+              alert: '#D92626', // Red/Orange for alerts
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.7.1",
+    "firebase/app": "https://esm.sh/firebase@10.12.2/app",
+    "firebase/auth": "https://esm.sh/firebase@10.12.2/auth",
+    "firebase/firestore": "https://esm.sh/firebase@10.12.2/firestore",
+    "firebase/storage": "https://esm.sh/firebase@10.12.2/storage",
+    "axios": "https://esm.sh/axios@^1.11.0",
+    "firebase/": "https://esm.sh/firebase@^12.0.0/",
+    "cors": "https://esm.sh/cors@^2.8.5",
+    "dotenv": "https://esm.sh/dotenv@^17.2.1",
+    "vite": "https://esm.sh/vite@^7.0.6",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^4.7.0",
+    "express": "https://esm.sh/express@^5.1.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.9"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-neutral text-support">
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
