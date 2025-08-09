@@ -1,141 +1,97 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+// frontend/src/components/Header.tsx
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-const navLinkClasses = "px-3 py-2 rounded-md text-sm font-medium text-secondary hover:text-white transition-colors relative";
-const activeNavLinkClasses = "text-white";
+const NAV = [
+  { label: "Home", href: "#home" },
+  { label: "Projects", href: "#projects" },
+  { label: "Team", href: "#team" },
+  { label: "Notices", href: "#notices" },
+  { label: "Contact", href: "#contact" },
+];
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Hamburger = ({ open }: { open: boolean }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden>
+    <path d={open ? "M6 18L18 6M6 6l12 12" : "M3 6h18M3 12h18M3 18h18"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
 
-  const navLinks = [
-    { to: '/', text: 'Home' },
-    { to: '/about', text: 'About' },
-    { to: '/projects', text: 'Projects' },
-    { to: '/achievements', text: 'Achievements' },
-    { to: '/gallery', text: 'Gallery' },
-    { to: '/team', text: 'Team' },
-    { to: '/contact', text: 'Contact' },
-  ];
+const Header: React.FC = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [dark, setDark] = useState<boolean>(() => localStorage.getItem("tp-theme") === "dark");
 
-  const menuVariants = {
-    closed: { opacity: 0, height: 0, transition: { duration: 0.3 } },
-    open: { opacity: 1, height: 'auto', transition: { duration: 0.3, staggerChildren: 0.05 } },
-  };
-
-  const linkVariants = {
-    closed: { opacity: 0, y: -10 },
-    open: { opacity: 1, y: 0 },
-  };
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("tp-theme", dark ? "dark" : "light");
+  }, [dark]);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="sticky top-0 z-50 bg-glass backdrop-blur-lg border-b border-cyan-300/10"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0">
-            <NavLink to="/" className="text-secondary font-bold text-xl flex items-center group">
-              {/* <img src="src\images\logo.png" alt="Icon" className="h-14 w-14 rounded-full mr-3 object-cover group-hover:opacity-80 transition-opacity duration-200"/> */}
-              {/* <img src={new URL('../images/logo.png', import.meta.url).href} /> */}
-              <img
-                src={new URL('../images/logo.png', import.meta.url).href}
-                alt="Icon"
-                className="h-14 w-14 rounded-full mr-3 object-cover group-hover:opacity-80 transition-opacity duration-200"
-              />
+    <header className="fixed w-full z-50 top-0">
+      <div className="backdrop-blur glass border-b border-white/6">
+        <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+          <motion.a
+            href="#home"
+            initial={{ y: -8, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="text-lg md:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-400"
+          >
+            Team Pushpak
+          </motion.a>
 
+          <nav className="hidden md:flex items-center gap-6">
+            {NAV.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                className="text-sm font-medium hover:underline hover:underline-offset-4 transition"
+              >
+                {n.label}
+              </a>
+            ))}
 
-
-              <span className="group-hover:text-white transition-colors">Team Pushpak</span>
-            </NavLink>
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-2">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  className={({ isActive }) => `${navLinkClasses} ${isActive ? activeNavLinkClasses : ''}`}
-                >
-                  {({ isActive }) => (
-                    <>
-                      {link.text}
-                      {isActive && (
-                        <motion.div
-                          className="absolute bottom-0 left-2 right-2 h-0.5 bg-accent"
-                          layoutId="underline"
-                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                        />
-                      )}
-                    </>
-                  )}
-                </NavLink>
-              ))}
-            </div>
-          </div>
-          <div className="-mr-2 flex md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="relative z-10 inline-flex items-center justify-center p-2 w-10 h-10 rounded-md text-accent focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded={isOpen}
+              onClick={() => setDark((s) => !s)}
+              aria-label="Toggle theme"
+              className="ml-2 px-3 py-1 rounded-md ring-1 ring-white/10"
             >
-              <span className="sr-only">Open main menu</span>
-              <motion.div animate={isOpen ? "open" : "closed"} className="w-6 h-6 flex flex-col justify-around">
-                <motion.span
-                  className="block h-0.5 w-6 bg-current"
-                  variants={{ closed: { y: 0, rotate: 0 }, open: { y: 5, rotate: 45 } }}
-                  transition={{ duration: 0.3 }}
-                ></motion.span>
-                <motion.span
-                  className="block h-0.5 w-6 bg-current"
-                  variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
-                  transition={{ duration: 0.2 }}
-                ></motion.span>
-                <motion.span
-                  className="block h-0.5 w-6 bg-current"
-                  variants={{ closed: { y: 0, rotate: 0 }, open: { y: -5, rotate: -45 } }}
-                  transition={{ duration: 0.3 }}
-                ></motion.span>
-              </motion.div>
+              {dark ? "Light" : "Dark"}
+            </button>
+          </nav>
+
+          <div className="md:hidden flex items-center gap-3">
+            <button onClick={() => setDark((s) => !s)} className="px-2 py-1 rounded-md ring-1 ring-white/10">
+              {dark ? "☀️" : "🌙"}
+            </button>
+
+            <button
+              aria-label="Toggle menu"
+              onClick={() => setMobileOpen((v) => !v)}
+              className="p-2 rounded-md ring-1 ring-white/6"
+            >
+              <Hamburger open={mobileOpen} />
             </button>
           </div>
         </div>
-      </div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="md:hidden"
-            id="mobile-menu"
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-glass backdrop-blur-lg">
-              {navLinks.map((link) => (
-                <motion.div key={link.to} variants={linkVariants}>
-                  <NavLink
-                    to={link.to}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) =>
-                      `block text-base ${navLinkClasses} ${isActive ? activeNavLinkClasses : ''}`
-                    }
-                  >
-                    {link.text}
-                  </NavLink>
-                </motion.div>
+        {/* Mobile dropdown */}
+        {mobileOpen && (
+          <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="md:hidden">
+            <div className="px-6 pb-6 flex flex-col gap-3">
+              {NAV.map((n) => (
+                <a key={n.href} href={n.href} className="py-2 border-b border-white/4">
+                  {n.label}
+                </a>
               ))}
+              <div className="pt-3">
+                <button onClick={() => setDark((s) => !s)} className="px-4 py-2 rounded-md w-full">
+                  {dark ? "Switch to light" : "Switch to dark"}
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
-    </motion.nav>
+      </div>
+    </header>
   );
 };
 
