@@ -51,7 +51,8 @@ const HomePage: React.FC = () => {
     return (
         <div className="bg-neutral">
             <HeroSection
-                title="Engineering the Future of Flight"
+                // title="Engineering the Future of Flight"
+                title={<span className="mb-4 block">Engineering the Future of Flight helog</span>}
                 subtitle="Team Pushpak is a collegiate robotics team dedicated to pushing the boundaries of autonomous aerial technology. We build, we innovate, we fly."
             />
             

@@ -39,9 +39,16 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <NavLink to="/" className="text-secondary font-bold text-xl flex items-center group">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-2 text-accent group-hover:text-cyan-200 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.001 2C6.478 2 2.001 6.478 2.001 12C2.001 17.522 6.478 22 12.001 22C17.523 22 22.001 17.522 22.001 12C22.001 6.478 17.523 2 12.001 2ZM17.001 15.586L15.587 17L12.001 13.414L8.415 17L7.001 15.586L10.587 12L7.001 8.414L8.415 7L12.001 10.586L15.587 7L17.001 8.414L13.415 12L17.001 15.586Z" />
-              </svg>
+              {/* <img src="src\images\logo.png" alt="Icon" className="h-14 w-14 rounded-full mr-3 object-cover group-hover:opacity-80 transition-opacity duration-200"/> */}
+              {/* <img src={new URL('../images/logo.png', import.meta.url).href} /> */}
+              <img
+                src={new URL('../images/logo.png', import.meta.url).href}
+                alt="Icon"
+                className="h-14 w-14 rounded-full mr-3 object-cover group-hover:opacity-80 transition-opacity duration-200"
+              />
+
+
+
               <span className="group-hover:text-white transition-colors">Team Pushpak</span>
             </NavLink>
           </div>
@@ -79,21 +86,21 @@ const Header = () => {
             >
               <span className="sr-only">Open main menu</span>
               <motion.div animate={isOpen ? "open" : "closed"} className="w-6 h-6 flex flex-col justify-around">
-                 <motion.span
-                    className="block h-0.5 w-6 bg-current"
-                    variants={{ closed: { y: 0, rotate: 0 }, open: { y: 5, rotate: 45 } }}
-                    transition={{ duration: 0.3 }}
-                  ></motion.span>
-                  <motion.span
-                    className="block h-0.5 w-6 bg-current"
-                    variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
-                    transition={{ duration: 0.2 }}
-                  ></motion.span>
-                  <motion.span
-                    className="block h-0.5 w-6 bg-current"
-                    variants={{ closed: { y: 0, rotate: 0 }, open: { y: -5, rotate: -45 } }}
-                    transition={{ duration: 0.3 }}
-                  ></motion.span>
+                <motion.span
+                  className="block h-0.5 w-6 bg-current"
+                  variants={{ closed: { y: 0, rotate: 0 }, open: { y: 5, rotate: 45 } }}
+                  transition={{ duration: 0.3 }}
+                ></motion.span>
+                <motion.span
+                  className="block h-0.5 w-6 bg-current"
+                  variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
+                  transition={{ duration: 0.2 }}
+                ></motion.span>
+                <motion.span
+                  className="block h-0.5 w-6 bg-current"
+                  variants={{ closed: { y: 0, rotate: 0 }, open: { y: -5, rotate: -45 } }}
+                  transition={{ duration: 0.3 }}
+                ></motion.span>
               </motion.div>
             </button>
           </div>

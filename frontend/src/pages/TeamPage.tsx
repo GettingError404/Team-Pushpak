@@ -4,13 +4,13 @@ import TeamMemberCard from '../components/TeamMemberCard';
 import PageNavigation from '../components/PageNavigation';
 
 const coreTeam = [
-  { name: "Aarav Sharma", role: "Team Captain & Lead Mechanical", imageUrl: "https://picsum.photos/seed/aarav/400" },
-  { name: "Priya Singh", role: "Lead, Avionics & Control Systems", imageUrl: "https://picsum.photos/seed/priya/400" },
-  { name: "Rohan Mehta", role: "Lead, Software & AI", imageUrl: "https://picsum.photos/seed/rohan/400" },
+  { name: "Varsha Mhantalkar", role: "Team Captain & Lead Mechanical", imageUrl: "https://picsum.photos/seed/aarav/400" },
+  { name: "Snehal Shinde", role: "Lead, Avionics & Control Systems", imageUrl: "https://picsum.photos/seed/priya/400" },
+  // { name: "Rohan Mehta", role: "Lead, Software & AI", imageUrl: "https://picsum.photos/seed/rohan/400" },
 ];
 
 const softwareTeam = [
-    { name: "Sneha Gupta", role: "Computer Vision Specialist", imageUrl: "https://picsum.photos/seed/sneha/400" },
+    { name: "A Bashid Tagala", role: "Computer Vision Specialist", imageUrl: "https://picsum.photos/seed/sneha/400" },
     { name: "Karan Verma", role: "Flight Stack Developer", imageUrl: "https://picsum.photos/seed/karan/400" },
     { name: "Anjali Rao", role: "Mission Planner Dev", imageUrl: "https://picsum.photos/seed/anjali/400" },
 ];
