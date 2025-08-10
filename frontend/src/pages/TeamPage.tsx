@@ -2,23 +2,52 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import TeamMemberCard from '../components/TeamMemberCard';
 import PageNavigation from '../components/PageNavigation';
+import AakashImg from "../assets/teamImages/Aakash.jpg";
+import AaditoyaImg from "../assets/teamImages/aaditiya.jpg";
+import anujaImg from "../assets/teamImages/anuja.jpg";
+import aryanImg from "../assets/teamImages/aryan.jpg";
+import atharvImg from "../assets/teamImages/atharv.jpg";
+import BashidImg from "../assets/teamImages/Bashid.jpg";
+import chandImg from "../assets/teamImages/chandrakant.jpg";
+import imranImg from "../assets/teamImages/imran.jpg";
+import onkarImg from "../assets/teamImages/onkar.jpg";
+import prajwalImg from "../assets/teamImages/Prajwal.jpg";
+import pruthvirajImg from "../assets/teamImages/pruthviraj.jpg";
+import sakshiImg from "../assets/teamImages/sakshi.jpg";
+import snehalImg from "../assets/teamImages/snehal.jpg";
+import shivaImg from "../assets/teamImages/shiva.jpg";
+import udayImg from "../assets/teamImages/uday.jpg";
+import varshaImg from "../assets/teamImages/Varsha.jpg";
 
 const coreTeam = [
-  { name: "Varsha Mhantalkar", role: "Team Captain & Lead Mechanical", imageUrl: "https://picsum.photos/seed/aarav/400" },
-  { name: "Snehal Shinde", role: "Lead, Avionics & Control Systems", imageUrl: "https://picsum.photos/seed/priya/400" },
+  { name: "Varsha Mhantalkar", role: "Team Captain & Lead Mechanical", imageUrl: varshaImg },
+  { name: "Snehal Shinde", role: "Lead, Avionics & Control Systems", imageUrl: snehalImg },
   // { name: "Rohan Mehta", role: "Lead, Software & AI", imageUrl: "https://picsum.photos/seed/rohan/400" },
 ];
 
 const softwareTeam = [
-    { name: "A Bashid Tagala", role: "Computer Vision Specialist", imageUrl: "https://picsum.photos/seed/sneha/400" },
-    { name: "Karan Verma", role: "Flight Stack Developer", imageUrl: "https://picsum.photos/seed/karan/400" },
-    { name: "Anjali Rao", role: "Mission Planner Dev", imageUrl: "https://picsum.photos/seed/anjali/400" },
-];
+    { name: "A Bashid Tagala", role: "Computer Vision Specialist", imageUrl: BashidImg },
+    { name: "Aakash Madgale", role: "Flight Stack Developer", imageUrl: AakashImg },
+    { name: "Chandrakant Yalgi", role: "Mission Planner Dev", imageUrl: chandImg },
+    { name: "Anuja Birajdar", role: "Mission Planner Dev", imageUrl: anujaImg },
+    { name: "Sakshi Revaje", role: "Mission Planner Dev", imageUrl: sakshiImg },
+]
 
 const hardwareTeam = [
-    { name: "Vikram Kumar", role: "Propulsion Systems Engineer", imageUrl: "https://picsum.photos/seed/vikram/400" },
-    { name: "Diya Patel", role: "PCB & Circuit Design", imageUrl: "https://picsum.photos/seed/diya/400" },
-    { name: "Sameer Ali", role: "CAD & Fabrication Specialist", imageUrl: "https://picsum.photos/seed/sameer/400" },
+    { name: "Aaditiya Kalshetti", role: "Propulsion Systems Engineer", imageUrl: AaditoyaImg },
+    { name: "Shivachalappa Hippargi", role: "PCB & Circuit Design", imageUrl: shivaImg },
+    { name: "Atharva More", role: "CAD & Fabrication Specialist", imageUrl: atharvImg },
+    { name: "Pruthviraj Shinge", role: "CAD & Fabrication Specialist", imageUrl: pruthvirajImg },
+    { name: "Udayanraje Gholap", role: "CAD & Fabrication Specialist", imageUrl: udayImg },
+];
+
+
+const MechTeam = [
+    { name: "Aaditiya Kalshetti", role: "Propulsion Systems Engineer", imageUrl: AaditoyaImg },
+    { name: "Shivachalappa Hippargi", role: "PCB & Circuit Design", imageUrl: shivaImg },
+    { name: "Atharva More", role: "CAD & Fabrication Specialist", imageUrl: atharvImg },
+    { name: "Pruthviraj Shinge", role: "CAD & Fabrication Specialist", imageUrl: pruthvirajImg },
+    { name: "Udayanraje Gholap", role: "CAD & Fabrication Specialist", imageUrl: udayImg },
 ];
 
 const containerVariants = {
