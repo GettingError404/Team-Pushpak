@@ -20,7 +20,7 @@ import udayImg from "../assets/teamImages/uday.jpg";
 import varshaImg from "../assets/teamImages/Varsha.jpg";
 
 const coreTeam = [
-  { name: "Varsha Mhantalkar", role: "Team Captain & Lead Mechanical", imageUrl: varshaImg },
+  { name: "Varsha Manthalkar", role: "Team Captain & Lead Mechanical", imageUrl: varshaImg },
   { name: "Snehal Shinde", role: "Lead, Avionics & Control Systems", imageUrl: snehalImg },
   // { name: "Rohan Mehta", role: "Lead, Software & AI", imageUrl: "https://picsum.photos/seed/rohan/400" },
 ];
